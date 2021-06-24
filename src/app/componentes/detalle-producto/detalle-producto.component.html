@@ -1,0 +1,27 @@
+<div *ngIf="!unProd">
+    <p> Seleccione un producto </p>
+  </div>
+  
+  
+  <div *ngIf="unProd">
+
+    <div class="card  text-black" style="width:270px;">
+      <div class="card-body">
+        <h2>{{unProd.descripcion}} </h2>
+        <p class="card-text">
+            codigo: <b>{{unProd.codigo}}</b>
+            <br>
+            descripcion:  <b>{{unProd.descripcion}}</b>
+            <br>
+            precio:  <b>{{unProd.precio}} </b>
+            <br>
+            Cantidad de stock:  <b>{{unProd.stock}}</b>
+            <br>
+             paisOrigen:  <b>{{unProd.paisOrigen.name}}</b>
+            <br>
+          comestible:  <b>{{unProd.comestible}}</b>
+        </p>
+        <!-- <a href="#" class="btn btn-danger">Borrar</a> -->
+      </div>
+    </div>
+  </div>

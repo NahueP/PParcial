@@ -1,0 +1,25 @@
+<div class=container>
+    
+    <div >
+        <label for="codigo" class="form-label">Codigo</label>
+        <input type="number" class="form-control" id="codigo" placeholder="Ingrese codigo" [(ngModel)]="codigo" >
+
+    </div>
+
+
+    <div >
+        <label for="marca" class="form-label">Marca</label>
+        <input type="text" class="form-control" id="marca" placeholder="Ingrese marca" [(ngModel)]="marca" >
+        
+    </div>
+
+    <div >
+        <label for="capacidad" class="form-label">Capacidad</label>
+        <input type="number" class="form-control" id="capacidad" placeholder="Ingrese capacidad" [(ngModel)]="capacidad">
+        
+    </div>
+
+    <br>
+    <button type="button" class="w-100 btn btn-lg btn-outline-primary" (click)="cargarAltaContainer()" >Crear Container</button>
+
+</div>

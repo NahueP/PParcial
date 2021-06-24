@@ -1,0 +1,43 @@
+<body>
+<div class="jumbotron">
+ <div class="container">         
+    <div class="container-fluid">
+    <div class="mt-3">
+    <div class="row">
+    <div class="col-md-4">
+    <div class="card"> 
+    <img [src]="misDatos.avatar_url"/>
+        <div class="card-body">
+            <h2 class="card-title">{{ misDatos.login }}</h2>
+            <label>{{misDatos.name}}</label>
+            <p class="card-text">{{ misDatos.bio }}</p>
+            <a [href]="misDatos.html_url">mi repositorio</a>
+        </div>
+    </div>
+</div>
+<div class="col-md-6 align-self-top">
+    <div class="card">
+        <div class="card-header">
+            <span class="badge">{{ misDatos.public_repos }} Repositorios</span>
+            <span class="badge">{{ misDatos.followers }} Seguidores</span> 
+            <span class="badge">{{ misDatos.following }} Siguiendo</span>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    Nombre: <span>{{ misDatos.login }}</span>
+                </li>
+                 <li class="list-group-item">
+                    Link: {{ misDatos.html_url }}
+                 </li>
+            </ul>
+        </div>
+    </div>
+ </div>
+ </div>
+</div>
+</div>
+</div>
+</div>
+  
+

@@ -1,0 +1,75 @@
+<div class="container py-3">
+  <header>
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    </div>
+
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Marca </th>
+            <th scope="col">Capacidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let container of container$  | async">
+            <tr class="table-primary" (click)="selectContainer(container)" >
+            <th scope="row">{{container.codigo}}</th>
+            <td>{{container.marca}}</td>
+            <td>{{container.capacidad}}</td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+
+    </div>
+  </header>
+
+  <main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Crear</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+              <app-container-alta (nuevoContainer)="agregarContainer($event)"></app-container-alta>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Modificar</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+              <app-container-modificar [containerModif]='container'></app-container-modificar>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-header py-3 bg-outline-primary">
+            <h4 class="my-0 fw-normal">Borrar</h4>
+          </div>
+          <div class="card-body">
+            <ul class="list-unstyled mt-3 mb-4">
+              <app-container-baja [containerBorrar]='container'></app-container-baja>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    
+  </main>
+
+  
+</div>

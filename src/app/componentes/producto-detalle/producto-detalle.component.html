@@ -1,0 +1,31 @@
+<div class="jumbotron">
+    <div class="container">
+      <h3 class="display-3">Productos</h3>
+      <app-producto-listado    (productoSeleccionado)="tomarProductoParaDetalles($event)" ></app-producto-listado>
+
+
+    </div>
+  </div>
+
+
+
+
+   
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+
+      <div class="col-md-4">
+        <app-detalle-producto [unProd]="prodParaMostrar"></app-detalle-producto>
+
+      </div>
+
+      <div class="col-md-4">
+  <app-pais-producto [detalleProd]="prodParaMostrar"></app-pais-producto>
+
+      </div>
+
+    
+
+    </div>
+

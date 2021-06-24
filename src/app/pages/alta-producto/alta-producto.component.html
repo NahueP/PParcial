@@ -1,0 +1,102 @@
+
+<div class="container">
+<br>
+    <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+
+                <app-lista-paises  (paisSeleccionadoEvent)="cambiarPais($event)"> </app-lista-paises>
+            </div>
+
+            
+<div class="col-md-8 order-md-1">
+                 <form  [formGroup]="formProducto"  novalidate (ngSubmit)="crearProducto()">
+                    <div>
+                    
+                        <div class="row">
+                            <div class="col-md-12 mb-5">
+                                <h2>Alta Productos</h2>
+                            </div>
+                        </div>
+                        <div class="row formulario">
+
+                            <div class="col-md-6 mb-3">
+                                <label for="codigo" class="form-label">Codigo</label>
+                                <input type="number" class="form-control" id="codigo" placeholder="Ingrese codigo" formControlName="codigo">
+                               <small class="invalid" *ngIf="formProducto.get('codigo')?.errors?.required && formProducto.get('codigo')?.touched">Codigo requerido</small>
+                  
+                            </div>
+
+
+                            <div class="col-md-6 mb-3">
+                                <label for="descripcion" class="form-label">Descripcion</label>
+                                <input type="text" class="form-control" id="descripcion" placeholder="Ingrese descripcion" formControlName="descripcion">
+                                <small class="invalid" *ngIf="formProducto.get('descripcion')?.errors?.required && formProducto.get('descripcion')?.touched">Descripcion requerida</small>
+                                
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="precio" class="form-label">Precio</label>
+                                <input type="number" class="form-control" id="precio" placeholder="Ingrese precio" formControlName="precio">
+                                <small class="invalid" *ngIf="formProducto.get('precio')?.errors?.required && formProducto.get('precio')?.touched">precio requerido</small>
+                                
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="stock" class="form-label">Stock</label>
+                                <input type="number" class="form-control" id="stock" placeholder="Ingrese stock" formControlName = "stock">
+                                <small class="invalid" *ngIf="formProducto.get('stock')?.errors?.required && formProducto.get('stock')?.touched">stock requerido</small>
+                                
+             
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="pais" class="form-label">Pais de origen</label>
+                                <input type="text" class="form-control" id="paisOrigen" placeholder="Ingrese el pais"  formControlName="paisOrigen" disabled >
+                                <small class="invalid" *ngIf="formProducto.get('paisOrigen')?.errors?.required && formProducto.get('paisOrigen')?.touched">pais requerido</small>
+                                
+                            </div>
+
+                           <div class="col-md-6 mb-3">
+                            <label for="Comestible">Comestible</label>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="comestible" id="optionsRadios1" value="si" checked="" formControlName="comestible">
+                                  Si
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="radio" class="form-check-input" name="comestible" id="optionsRadios2" value="no" formControlName="comestible">
+                                  No
+                                </label>
+                              </div>
+                            </div> 
+
+                           
+                    
+                                  <div *ngIf="!pais">
+                                    <p> Seleccionar bandera: </p>
+                                    </div>
+
+                                    <div class="card col-12" style="max-width: 280px; margin: auto;" *ngIf="pais">
+                                <br>
+                                <img  [src]="pais.flag" class="card-img-top" style="border: 2px solid black;" alt="image pais" />
+                   
+                                <div class="card-body">
+                                <h4 class="card-title" >{{ pais.name }}</h4>   
+                                
+                        </div>
+                        
+                </div> 
+
+            
+            
+    
+<div class="col-md-12 d-grid gap-2">
+<br>
+<button type="submit" class="btn btn-primary btn-block" >
+    Aceptar
+</button>
+
+</div>
+</div>

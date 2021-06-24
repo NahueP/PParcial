@@ -1,0 +1,116 @@
+<div class="container py-3">
+    <header>
+      <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+      </div>
+  
+      <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+        <h4>Containers</h4>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">Marca </th>
+              <th scope="col">Capacidad</th>
+              <th scope="col">Producto</th>
+              <th scope="col">Stock</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let container of container$  | async">
+              <tr class="table-primary" (click)="selectContainer(container)" >
+              <th scope="row">{{container.codigo}}</th>
+              <td>{{container.marca}}</td>
+              <td>{{container.capacidad}}</td>
+              <td>{{container.producto}}</td>
+              <td>{{container.stock}}</td>
+            </tr>
+          </ng-container>
+          </tbody>
+        </table>
+  
+      </div>
+    </header>
+  
+    <main>
+      <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm border-primary">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">Productos</h4>
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled mt-3 mb-4">
+                
+                    <div class="list-group" id="list-tab" role="tablist">
+                      <ng-container *ngFor="let producto of productos$ | async">
+                      <a class="list-group-item list-group-item-action" (click)="selectProducto(producto)" style="font-size: larger; font-weight: bold;" id="list-prod-list" data-bs-toggle="list"  role="tab" aria-controls="list-prod" >
+                      <li>{{producto.descripcion}}</li>
+                      <li>Stock: {{producto.stock}}</li> 
+                    
+                      </a>
+                    </ng-container> 
+                    </div>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-8">
+          <div class="card mb-4 rounded-3 shadow-sm border-primary">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">Cargar Container</h4>
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled mt-3 mb-4">
+                <div class="card text-white bg-primary mb-3" style="max-width: 40rem;" *ngIf="container.codigo!=null">
+                    <div class="card-header">Codigo - {{container.codigo}}</div>
+                    <div class="card-body">
+                      <h6>Marca: {{container.marca}}</h6>
+                      <h6>Capacidad: {{container.capacidad}}</h6>
+                    </div>
+                </div>
+
+                <div class=container>
+    
+                    <div >
+                        <label for="producto" class="form-label">Producto</label>
+                        <input type="text" class="form-control" id="producto" placeholder="producto" [(ngModel)]="producto.descripcion" disabled>
+                        
+                    </div>
+                
+                    <div >
+                        <label for="stock" class="form-label">Stock</label>
+                        <input type="number" class="form-control" id="stock" min="1" max="{{container.capacidad}}" placeholder="stock" [(ngModel)]="stock">
+                        
+                    </div>
+                
+                    <br>
+                    <button type="button" class="w-100 btn btn-lg btn-outline-primary" (click)="cargarContainer()" [disabled]="container.codigo==null || stock==null || producto.descripcion==null" >Cargar Container</button>
+                
+                </div>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm border-primary">
+            <div class="card-header py-3 bg-outline-primary">
+              <h4 class="my-0 fw-normal">Borrar</h4>
+            </div>
+            <div class="card-body">
+              <ul class="list-unstyled mt-3 mb-4">
+               
+              </ul>
+            </div>
+          </div>
+        </div> -->
+      </div>
+  
+  
+  
+      
+    </main>
+  
+    
+  </div>
